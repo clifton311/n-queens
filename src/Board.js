@@ -82,7 +82,7 @@
 
      //declare a variable for the array at rowIndex
       var row = this.rows();
-      console.log("row[2]");
+      console.log(this.rows());
      //iterate through the array
      var counter = 0;
       for (var i = 0; i < this.rows()[rowIndex].length; i++) {
@@ -205,14 +205,15 @@
     
     hasMinorDiagonalConflictAt: function(minorDiagonalColumnIndexAtFirstRow) {
       var board = this.attributes;
-      var queens = 0;
+      var counter = 0;
 
       // loop through the minor diagonal and count the queens that exist
       for ( var i = 0; i < board.n; i++ ){
 
         //current minor diagonal is board[i][minorDiagonalColumnIndexAtFirstRow]
         // if queen found, increment queens
-        if ( board[i][minorDiagonalColumnIndexAtFirstRow] ) queens++;
+        if ( board[i][minorDiagonalColumnIndexAtFirstRow] ) 
+          counter++;
 
         // move to next minor diagonal element
         minorDiagonalColumnIndexAtFirstRow--;
@@ -220,7 +221,7 @@
       }
 
       // return if conflict is found, return true
-      if ( queens > 1 ) {
+      if ( counter > 1 ) {
         return true;
       } 
       return false;
